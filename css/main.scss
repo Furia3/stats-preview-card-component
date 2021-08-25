@@ -1,0 +1,158 @@
+@import 'mixins';
+@import "variables";
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-size: 15px;
+    font-family: 'Inter', sans-serif;
+    background-color: $very-dark-blue;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: $White;
+}
+
+.accent{
+    color: $Soft-violet;
+}
+
+.lowercase{
+    text-transform: lowercase;
+}
+
+.card{
+    background-color: $Dark-desaturated-blue;
+    display: flex;
+    justify-content: space-between;
+    width: 1110px;
+    border-radius: 15px;
+
+    @include responsive(1){
+        width: 900px;
+    }
+
+    @include responsive(2){
+        flex-direction: column;
+        width: 80vw;
+        margin-top: 5rem;
+    }
+
+    &__content{
+        padding: 4.5rem 0 0 4.5rem;
+
+        @include responsive(1){
+            padding: 2rem 0 0 2.5rem;
+        }
+
+        @include responsive(2){
+            order: 1;
+            width: 80vw;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-left: 0;
+        }
+
+        h1{
+            max-width: 450px;
+            font-size: 2.2rem;
+
+            @include responsive(2){
+                max-width: 370px;
+                text-align: center;
+            }
+        }
+
+        p{
+            margin-top: 1.6rem;
+            line-height: 1.6rem;
+            color: $Slightly-transparent-white1;
+            max-width: 355px;
+
+            @include responsive(2){
+                text-align: center;
+            }
+        }
+
+        &__stats{
+            padding-top: 4.4rem;
+            display: flex;
+            justify-content: space-between;
+            max-width: 348px;
+            text-transform: uppercase;
+
+            @include responsive(1){
+                padding-top: 2.6rem;
+            }
+
+            @include responsive(2){
+                width: 70%;
+                margin-bottom: 2rem;
+            }
+
+            &__value{
+                font-size: 1.5rem;
+                font-weight: 700;
+            }
+
+            &__text{
+                font-family: 'Lexend Deca', sans-serif;
+                color: $Slightly-transparent-white2;
+                margin-top: 0.3rem;
+                font-size: 0.8rem;
+            }
+
+            div{
+                display: flex;
+                flex-direction: column;
+            }
+        }
+    }
+
+    &__illustration{
+        max-height: 446px;
+        background-color: darken($Soft-violet, 20);
+        border-top-right-radius: 15px;
+        border-bottom-right-radius: 15px;
+        
+        @include responsive(1){
+            height: 350px;
+        }
+
+        @include responsive(2){
+            order: -1;
+            max-height: 477px;
+            border-bottom-right-radius: 0;
+            border-top-left-radius: 15px;
+        }
+
+        img{
+            opacity: 0.5;
+            height: 100%;
+            border-top-right-radius: 15px;
+            border-bottom-right-radius: 15px;
+        }
+
+        &__desktop{
+            @include responsive(2){
+                display: none;
+            }
+        }
+
+        &__mobile{
+            display: none;
+            @include responsive(2){
+                display: inline;
+                width: 100%;
+                border-bottom-right-radius: 0;
+                border-top-left-radius: 15px;
+            }
+        }
+    }
+}

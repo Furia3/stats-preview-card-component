@@ -1,0 +1,5 @@
+@mixin responsive($value) {
+    @media screen and (max-width: map-get($breakpoints , $value)){
+        @content
+    }
+}
